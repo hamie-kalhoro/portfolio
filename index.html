@@ -706,7 +706,7 @@
             <div class="hero-content">
                 <h1 class="animate-from-left">Backend Developer</h1>
                 <p class="tagline animate-from-left delay-1">Building scalable, high-performance systems with Java & Spring</p>
-                <p class="description animate-from-left delay-2">Specializing in microservices architecture, REST APIs, and cloud-native applications with 3+ years of professional experience.</p>
+                <p class="description animate-from-left delay-2">Specializing in microservices architecture, REST APIs, and Spring Boot applications with 2.5+ years of experience in Java.</p>
                 
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary animate-from-left delay-3">
@@ -950,22 +950,35 @@
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Skills Data with Updated Proficiency Levels and Icons
+        // Skills Data with Updated Proficiency Levels and Icons - Ordered logically
         const skillsData = [
+            // Core Languages
             { name: 'Java', level: 87, icon: '<i class="fab fa-java"></i>' },
-            { name: 'Spring Boot', level: 85, icon: '<i class="fas fa-leaf"></i>' },
+            
+            // Spring Ecosystem
+            { name: 'Spring Boot', level: 83, icon: '<i class="fas fa-leaf"></i>' },
             { name: 'Spring Security', level: 80, icon: '<i class="fas fa-shield-alt"></i>' },
-            { name: 'Microservices', level: 80, icon: '<i class="fas fa-network-wired"></i>' },
-            { name: 'Docker', level: 80, icon: '<i class="fab fa-docker"></i>' },
-            { name: 'Kubernetes', level: 70, icon: '<i class="fas fa-cubes"></i>' },
+            
+            // API Development
+            { name: 'REST APIs', level: 88, icon: '<i class="fas fa-code"></i>' },
+            
+            // Databases
             { name: 'MySQL', level: 85, icon: '<i class="fas fa-database"></i>' },
             { name: 'MongoDB', level: 75, icon: '<i class="fas fa-server"></i>' },
-            { name: 'REST APIs', level: 88, icon: '<i class="fas fa-code"></i>' }
+            
+            // Architecture
+            { name: 'Microservices', level: 80, icon: '<i class="fas fa-network-wired"></i>' },
+            
+            // DevOps
+            { name: 'Docker', level: 80, icon: '<i class="fab fa-docker"></i>' },
+            { name: 'Kubernetes', level: 70, icon: '<i class="fas fa-cubes"></i>' }
         ];
 
         // Render Skills with animation
         function renderSkills() {
             const skillsContainer = document.querySelector('.skills-container');
+            skillsContainer.innerHTML = ''; // Clear existing content
+            
             skillsData.forEach((skill, index) => {
                 const skillCard = document.createElement('div');
                 skillCard.className = `skill-card animate-from-bottom delay-${index % 3}`;
@@ -981,19 +994,20 @@
                             <span>${skill.level}%</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0"></div>
+                            <div class="progress-fill" style="width: ${skill.level}%"></div>
                         </div>
                     </div>
                 `;
                 skillsContainer.appendChild(skillCard);
-                
-                // Animate progress bar after a short delay
-                setTimeout(() => {
-                    const fill = skillCard.querySelector('.progress-fill');
-                    fill.style.width = `${skill.level}%`;
-                }, 100 * (index + 1));
             });
         }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            renderSkills();
+            initAnimations(); // Make sure this function is called
+        });
+
 
         // Initialize animations on load
         function initAnimations() {
