@@ -677,7 +677,7 @@
 </head>
 <body>
     <!-- Floating Download CV Button -->
-    <a href="#" class="download-cv" id="downloadCvBtn">
+    <a href="HamidAli_JavaDeveloper.pdf" class="download-cv" id="downloadCvBtn" download="HamidAli_JavaDeveloper_CV">
         <i class="fas fa-download"></i>
         Download CV
     </a>
@@ -1051,10 +1051,15 @@
 
         // Download CV functionality
         document.getElementById('downloadCvBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            // Replace with actual CV download logic
-            alert('CV download will start shortly...');
-            // window.open('path/to/your-cv.pdf', '_blank');
+            // This will now properly trigger the browser's native download behavior
+            // No need for preventDefault() since we want the default download behavior
+            // Make sure "HamidAli_JavaDeveloper.pdf" exists in your root directory
+        });
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            renderSkills();
+            initAnimations();
         });
     </script>
 </body>
