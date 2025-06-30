@@ -94,26 +94,32 @@
         header {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8); /* More transparent background */
+            backdrop-filter: blur(12px); /* Increased blur effect */
+            -webkit-backdrop-filter: blur(12px); /* For Safari */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transition: all 0.3s;
         }
 
         .dark-mode header {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(15, 23, 42, 0.8); /* More transparent in dark mode */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 2px 10px rgba(248, 250, 252, 0.1);
         }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.9); /* Slightly less transparent when scrolled */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         }
 
         .dark-mode header.scrolled {
-            background: rgba(15, 23, 42, 0.98);
+            background: rgba(15, 23, 42, 0.9); /* Slightly less transparent when scrolled */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         nav {
